@@ -11,7 +11,7 @@
 $modversion = [];
 $modversion['name']           = 'skeleton';
 $modversion['id']             = '123456';  // @todo replace with fixed number
-$modversion['version']        = '2.4.2';
+$modversion['version']        = '2.5.3';
 $modversion['displayname']    = 'Skeleton';
 $modversion['description']    = 'Skeleton for a new Xaraya module';
 $modversion['credits']        = '';

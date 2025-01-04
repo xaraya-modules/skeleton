@@ -44,7 +44,8 @@ final class UserApiTest extends TestCase
     public function testUserApi(): void
     {
         $expected = 0;
-        $itemtypes = UserApi::getItemTypes();
+        $userapi = xarMod::getAPI('skeleton');
+        $itemtypes = $userapi->getItemTypes();
         $this->assertCount($expected, $itemtypes);
     }
 }

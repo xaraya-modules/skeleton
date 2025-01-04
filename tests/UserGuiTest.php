@@ -35,14 +35,14 @@ final class UserGuiTest extends TestCase
     public function testUserGui(): void
     {
         $expected = UserGui::class;
-        $usergui = new UserGui();
+        $usergui = xarMod::getGUI('skeleton');
         $this->assertEquals($expected, $usergui::class);
     }
 
     public function testMain(): void
     {
         $context = null;
-        $usergui = new UserGui();
+        $usergui = xarMod::getGUI('skeleton');
         $usergui->setContext($context);
 
         $args = ['hello' => 'world'];

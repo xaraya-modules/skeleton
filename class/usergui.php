@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package modules\skeleton
  * @category Xaraya Web Applications Framework
