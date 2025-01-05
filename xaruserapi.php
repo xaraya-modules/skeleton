@@ -18,7 +18,7 @@ function skeleton_userapi_getitemtypes(array $args = [], $context = null)
 {
     $userapi = xarMod::getAPI('skeleton');
     $userapi->setContext($context);
-    return $userapi->getItemTypes($args, $context);
+    return $userapi->getItemTypes($args);
 }
 
 /**
@@ -33,5 +33,5 @@ function skeleton_userapi_getitemlinks(array $args = [], $context = null)
 {
     $userapi = xarMod::getAPI('skeleton');
     $userapi->setContext($context);
-    return $userapi->getItemLinks($args, $context);
+    return $userapi->getItemLinks($args);
 }
