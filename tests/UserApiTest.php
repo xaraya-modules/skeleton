@@ -48,4 +48,33 @@ final class UserApiTest extends TestCase
         $itemtypes = $userapi->getItemTypes();
         $this->assertCount($expected, $itemtypes);
     }
+
+    public function testXarModApiFunc(): void
+    {
+        // initialize modules
+        //xarMod::init();
+        $expected = [];
+        $result = xarMod::apiFunc('skeleton', 'user', 'getitemtypes');
+        $this->assertEquals($expected, $result);
+    }
+
+    public function testXarModApiFuncInvalidName(): void
+    {
+        // initialize modules
+        //xarMod::init();
+        $this->expectException(FunctionNotFoundException::class);
+        $expected = 'The function "skeleton_userapi_invalid" could not be found or not be loaded.';
+        $this->expectExceptionMessage($expected);
+        $result = xarMod::apiFunc('skeleton', 'user', 'invalid');
+    }
+
+    public function testXarModApiFuncInvalidType(): void
+    {
+        // initialize modules
+        //xarMod::init();
+        $this->expectException(FunctionNotFoundException::class);
+        $expected = 'The function "skeleton_oopsapi_getitemtypes" could not be found or not be loaded.';
+        $this->expectExceptionMessage($expected);
+        $result = xarMod::apiFunc('skeleton', 'oops', 'getitemtypes');
+    }
 }

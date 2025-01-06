@@ -23,6 +23,10 @@ This version aligns with [Xaraya 2.5.3](https://github.com/mikespub/xaraya-core/
 
 This version aligns with [Xaraya 2.5.4](https://github.com/mikespub/xaraya-core/releases/tag/v2.5.4) and uses the `Xaraya\Modules` namespace for module traits.
 
-### 2.x.x Use module classes directly
+### 2.6.0 Use module classes directly
 
-TODO
+This version aligns with [Xaraya 2.5.5](https://github.com/mikespub/xaraya-core/releases/tag/v2.5.5) and Xaraya core can call the module api, gui and installer class methods directly.
+
+Procedural functions like `skeleton_userapi_getitemtypes()` in xaruserapi.php, xaruser.php or xarinit.php files are **not** needed anymore. This changes from the traditional module structure used since Xaraya 1.x, and allows modules to be developped in a more object-oriented way.
+
+*Note that traditional function files are still supported and will take precedence if available.*

@@ -54,4 +54,37 @@ final class UserGuiTest extends TestCase
         ]);
         $this->assertEquals($expected, $data);
     }
+
+    public function testXarModGuiFunc(): void
+    {
+        // initialize modules
+        //xarMod::init();
+        // needed to initialize the template cache
+        xarTpl::init();
+        $expected = 'Description of Skeleton';
+        $output = xarMod::guiFunc('skeleton');
+        $this->assertStringContainsString($expected, $output);
+    }
+
+    public function testXarModGuiFuncInvalidName(): void
+    {
+        // initialize modules
+        //xarMod::init();
+        // needed to initialize the template cache
+        xarTpl::init();
+        $expected = 'Function not found';
+        $output = xarMod::guiFunc('skeleton', 'user', 'invalid');
+        $this->assertStringContainsString($expected, $output);
+    }
+
+    public function testXarModGuiFuncInvalidType(): void
+    {
+        // initialize modules
+        //xarMod::init();
+        // needed to initialize the template cache
+        xarTpl::init();
+        $expected = 'Function not found';
+        $output = xarMod::guiFunc('skeleton', 'oops', 'main');
+        $this->assertStringContainsString($expected, $output);
+    }
 }
