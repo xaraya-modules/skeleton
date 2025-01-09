@@ -3,7 +3,7 @@
 /**
  * @package modules\skeleton
  * @category Xaraya Web Applications Framework
- * @version 2.4.2
+ * @version 2.5.7
  * @copyright see the html/credits.html file in this release
  * @license GPL {@link http://www.gnu.org/licenses/gpl.html}
  * @link https://github.com/mikespub/xaraya-modules
@@ -15,9 +15,6 @@ namespace Xaraya\Modules\Skeleton;
 
 use Xaraya\DataObject\Traits\UserGuiInterface;
 use Xaraya\DataObject\Traits\UserGuiTrait;
-use BadParameterException;
-use xarSec;
-use xarVar;
 use sys;
 
 sys::import('modules.dynamicdata.class.objects.factory');
