@@ -26,6 +26,7 @@ sys::import('modules.skeleton.class.userapi');
  */
 class UserGui implements UserGuiInterface
 {
+    /** @use UserGuiTrait<Module> */
     use UserGuiTrait;
 
     /**
