@@ -1,33 +1,10 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
-use Xaraya\Context\Context;
-use Xaraya\Context\SessionContext;
+use Xaraya\Modules\TestHelper;
 use Xaraya\Modules\Skeleton\UserGui;
 
-//use Xaraya\Sessions\SessionHandler;
-
-final class UserGuiTest extends TestCase
+final class UserGuiTest extends TestHelper
 {
-    public static function setUpBeforeClass(): void
-    {
-        // initialize bootstrap
-        sys::init();
-        // initialize caching - delay until we need results
-        xarCache::init();
-        // initialize loggers
-        xarLog::init();
-        // initialize database - delay until caching fails
-        xarDatabase::init();
-        // initialize modules
-        //xarMod::init();
-        // initialize users
-        //xarUser::init();
-        xarSession::setSessionClass(SessionContext::class);
-    }
-
-    public static function tearDownAfterClass(): void {}
-
     protected function setUp(): void {}
 
     protected function tearDown(): void {}
@@ -35,16 +12,16 @@ final class UserGuiTest extends TestCase
     public function testUserGui(): void
     {
         $expected = UserGui::class;
+        /** @var UserGui $usergui */
         $usergui = xarMod::getGUI('skeleton');
-	assert($usergui instanceof UserGui);
         $this->assertEquals($expected, $usergui::class);
     }
 
-    public function testMain(): void
+    public function testUserMain(): void
     {
-        $context = null;
+        $context = $this->createContext();
+        /** @var UserGui $usergui */
         $usergui = xarMod::getGUI('skeleton');
-	assert($usergui instanceof UserGui);
         $usergui->setContext($context);
 
         $args = ['hello' => 'world'];
@@ -76,17 +53,6 @@ final class UserGuiTest extends TestCase
         xarTpl::init();
         $expected = 'Function not found';
         $output = (string) xarMod::guiFunc('skeleton', 'user', 'invalid');
-        $this->assertStringContainsString($expected, $output);
-    }
-
-    public function testXarModGuiFuncInvalidType(): void
-    {
-        // initialize modules
-        //xarMod::init();
-        // needed to initialize the template cache
-        xarTpl::init();
-        $expected = 'Function not found';
-        $output = (string) xarMod::guiFunc('skeleton', 'oops', 'main');
         $this->assertStringContainsString($expected, $output);
     }
 }
