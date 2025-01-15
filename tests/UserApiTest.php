@@ -9,7 +9,7 @@ use Xaraya\Modules\Skeleton\UserApi;
 
 final class UserApiTest extends TestCase
 {
-    protected static $oldDir;
+    protected static string $oldDir;
 
     public static function setUpBeforeClass(): void
     {
@@ -28,7 +28,7 @@ final class UserApiTest extends TestCase
         xarSession::setSessionClass(SessionContext::class);
 
         // file paths are relative to parent directory
-        static::$oldDir = getcwd();
+        static::$oldDir = (string) getcwd();
         chdir(dirname(__DIR__));
     }
 
@@ -44,6 +44,7 @@ final class UserApiTest extends TestCase
     public function testUserApi(): void
     {
         $expected = 0;
+        /** @var UserApi $userapi */
         $userapi = xarMod::getAPI('skeleton');
         $itemtypes = $userapi->getItemTypes();
         $this->assertCount($expected, $itemtypes);

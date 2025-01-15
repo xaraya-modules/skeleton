@@ -1,8 +1,9 @@
 parameters:
-    level: 5
+    level: 8
     paths:
         - .
+    excludePaths:
+        - var/*
+        - vendor/*
     bootstrapFiles:
         - phpstan-bootstrap.php
-    ignoreErrors:
-        - '#Function xarML not found.#'

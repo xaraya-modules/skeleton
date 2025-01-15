@@ -36,6 +36,7 @@ final class UserGuiTest extends TestCase
     {
         $expected = UserGui::class;
         $usergui = xarMod::getGUI('skeleton');
+	assert($usergui instanceof UserGui);
         $this->assertEquals($expected, $usergui::class);
     }
 
@@ -43,6 +44,7 @@ final class UserGuiTest extends TestCase
     {
         $context = null;
         $usergui = xarMod::getGUI('skeleton');
+	assert($usergui instanceof UserGui);
         $usergui->setContext($context);
 
         $args = ['hello' => 'world'];
@@ -62,7 +64,7 @@ final class UserGuiTest extends TestCase
         // needed to initialize the template cache
         xarTpl::init();
         $expected = 'Description of Skeleton';
-        $output = xarMod::guiFunc('skeleton');
+        $output = (string) xarMod::guiFunc('skeleton');
         $this->assertStringContainsString($expected, $output);
     }
 
@@ -73,7 +75,7 @@ final class UserGuiTest extends TestCase
         // needed to initialize the template cache
         xarTpl::init();
         $expected = 'Function not found';
-        $output = xarMod::guiFunc('skeleton', 'user', 'invalid');
+        $output = (string) xarMod::guiFunc('skeleton', 'user', 'invalid');
         $this->assertStringContainsString($expected, $output);
     }
 
@@ -84,7 +86,7 @@ final class UserGuiTest extends TestCase
         // needed to initialize the template cache
         xarTpl::init();
         $expected = 'Function not found';
-        $output = xarMod::guiFunc('skeleton', 'oops', 'main');
+        $output = (string) xarMod::guiFunc('skeleton', 'oops', 'main');
         $this->assertStringContainsString($expected, $output);
     }
 }
