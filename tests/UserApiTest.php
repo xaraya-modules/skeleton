@@ -3,8 +3,6 @@
 use Xaraya\Modules\TestHelper;
 use Xaraya\Modules\Skeleton\UserApi;
 
-//use Xaraya\Sessions\SessionHandler;
-
 final class UserApiTest extends TestHelper
 {
     protected function setUp(): void {}
