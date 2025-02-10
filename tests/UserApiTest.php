@@ -13,7 +13,7 @@ final class UserApiTest extends TestHelper
     {
         $expected = 0;
         /** @var UserApi $userapi */
-        $userapi = xarMod::getAPI('skeleton');
+        $userapi = xarMod::userapi('skeleton');
         $itemtypes = $userapi->getItemTypes();
         $this->assertCount($expected, $itemtypes);
     }

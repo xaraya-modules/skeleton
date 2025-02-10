@@ -13,7 +13,7 @@ final class UserGuiTest extends TestHelper
     {
         $expected = UserGui::class;
         /** @var UserGui $usergui */
-        $usergui = xarMod::getGUI('skeleton');
+        $usergui = xarMod::usergui('skeleton');
         $this->assertEquals($expected, $usergui::class);
     }
 
@@ -21,7 +21,7 @@ final class UserGuiTest extends TestHelper
     {
         $context = $this->createContext();
         /** @var UserGui $usergui */
-        $usergui = xarMod::getGUI('skeleton');
+        $usergui = xarMod::usergui('skeleton');
         $usergui->setContext($context);
 
         $args = ['hello' => 'world'];

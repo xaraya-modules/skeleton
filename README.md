@@ -17,7 +17,7 @@ $context['twig'] = true;
 
 ### 2.5.3 Module classes via core
 
-This version aligns with [Xaraya 2.5.3](https://github.com/mikespub/xaraya-core/releases/tag/v2.5.3) and uses `xarMod::getGUI()` resp. `xarMod::getAPI()` to load module classes from the core via the new module class in  `class/module.php`.
+This version aligns with [Xaraya 2.5.3](https://github.com/mikespub/xaraya-core/releases/tag/v2.5.3) and uses `xarMod::usergui()` resp. `xarMod::userapi()` to load module classes from the core via the new module class in  `class/module.php`.
 
 ### 2.5.5 Align with trait namespaces
 
