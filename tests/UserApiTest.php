@@ -1,7 +1,11 @@
 <?php
 
+namespace Xaraya\Modules\Skeleton\Tests;
+
 use Xaraya\Modules\TestHelper;
 use Xaraya\Modules\Skeleton\UserApi;
+use xarMod;
+use FunctionNotFoundException;
 
 final class UserApiTest extends TestHelper
 {

@@ -1,7 +1,11 @@
 <?php
 
+namespace Xaraya\Modules\Skeleton\Tests;
+
 use Xaraya\Modules\TestHelper;
 use Xaraya\Modules\Skeleton\UserGui;
+use xarMod;
+use xarTpl;
 
 final class UserGuiTest extends TestHelper
 {
