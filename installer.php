@@ -16,9 +16,6 @@
 namespace Xaraya\Modules\Skeleton;
 
 use Xaraya\Modules\InstallerClass;
-use sys;
-
-sys::import('xaraya.modules.installer');
 
 /**
  * Handle module installer functions

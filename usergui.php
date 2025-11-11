@@ -15,11 +15,6 @@ namespace Xaraya\Modules\Skeleton;
 
 use Xaraya\Modules\DynamicData\Traits\UserGuiInterface;
 use Xaraya\Modules\DynamicData\Traits\UserGuiTrait;
-use sys;
-
-sys::import('modules.dynamicdata.class.objects.factory');
-sys::import('modules.dynamicdata.traits.usergui');
-sys::import('modules.skeleton.userapi');
 
 /**
  * Class instance to handle the Skeleton User GUI
