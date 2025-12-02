@@ -4,7 +4,7 @@ namespace Xaraya\Modules\Skeleton\Tests;
 
 use Xaraya\Modules\TestHelper;
 use Xaraya\Modules\Skeleton\UserApi;
-use xarMod;
+use Xaraya\Services\xar;
 use FunctionNotFoundException;
 
 final class UserApiTest extends TestHelper
@@ -17,7 +17,7 @@ final class UserApiTest extends TestHelper
     {
         $expected = 0;
         /** @var UserApi $userapi */
-        $userapi = xarMod::userapi('skeleton');
+        $userapi = xar::mod()->userapi('skeleton');
         $itemtypes = $userapi->getItemTypes();
         $this->assertCount($expected, $itemtypes);
     }
@@ -25,19 +25,19 @@ final class UserApiTest extends TestHelper
     public function testXarModApiFunc(): void
     {
         // initialize modules
-        //xarMod::init();
+        //xar::mod()->init();
         $expected = [];
-        $result = xarMod::apiFunc('skeleton', 'user', 'getitemtypes');
+        $result = xar::mod()->apiFunc('skeleton', 'user', 'getitemtypes');
         $this->assertEquals($expected, $result);
     }
 
     public function testXarModApiFuncInvalidName(): void
     {
         // initialize modules
-        //xarMod::init();
+        //xar::mod()->init();
         $this->expectException(FunctionNotFoundException::class);
         $expected = 'The function "skeleton_userapi_invalid" could not be found or not be loaded.';
         $this->expectExceptionMessage($expected);
-        $result = xarMod::apiFunc('skeleton', 'user', 'invalid');
+        $result = xar::mod()->apiFunc('skeleton', 'user', 'invalid');
     }
 }

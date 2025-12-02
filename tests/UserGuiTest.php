@@ -4,8 +4,7 @@ namespace Xaraya\Modules\Skeleton\Tests;
 
 use Xaraya\Modules\TestHelper;
 use Xaraya\Modules\Skeleton\UserGui;
-use xarMod;
-use xarTpl;
+use Xaraya\Services\xar;
 
 final class UserGuiTest extends TestHelper
 {
@@ -17,7 +16,7 @@ final class UserGuiTest extends TestHelper
     {
         $expected = UserGui::class;
         /** @var UserGui $usergui */
-        $usergui = xarMod::usergui('skeleton');
+        $usergui = xar::mod()->usergui('skeleton');
         $this->assertEquals($expected, $usergui::class);
     }
 
@@ -25,7 +24,7 @@ final class UserGuiTest extends TestHelper
     {
         $context = $this->createContext();
         /** @var UserGui $usergui */
-        $usergui = xarMod::usergui('skeleton');
+        $usergui = xar::mod()->usergui('skeleton');
         $usergui->setContext($context);
 
         $args = ['hello' => 'world'];
@@ -41,22 +40,22 @@ final class UserGuiTest extends TestHelper
     public function testXarModGuiFunc(): void
     {
         // initialize modules
-        //xarMod::init();
+        //xar::mod()->init();
         // needed to initialize the template cache
-        xarTpl::init();
+        xar::tpl()->init();
         $expected = 'Description of Skeleton';
-        $output = (string) xarMod::guiFunc('skeleton');
+        $output = (string) xar::mod()->guiFunc('skeleton');
         $this->assertStringContainsString($expected, $output);
     }
 
     public function testXarModGuiFuncInvalidName(): void
     {
         // initialize modules
-        //xarMod::init();
+        //xar::mod()->init();
         // needed to initialize the template cache
-        xarTpl::init();
+        xar::tpl()->init();
         $expected = 'Function not found';
-        $output = (string) xarMod::guiFunc('skeleton', 'user', 'invalid');
+        $output = (string) xar::mod()->guiFunc('skeleton', 'user', 'invalid');
         $this->assertStringContainsString($expected, $output);
     }
 }
