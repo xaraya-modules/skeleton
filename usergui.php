@@ -33,8 +33,6 @@ class UserGui implements UserGuiInterface
     {
         $args['description'] ??= 'Description of Skeleton';
 
-        // Pass along the context for $this->tpl()->module() if needed
-        $args['context'] ??= $this->getContext();
         return $args;
     }
 }
